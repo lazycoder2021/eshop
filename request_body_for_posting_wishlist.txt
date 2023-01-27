@@ -1,0 +1,22 @@
+{
+  "wishlisttotal":[
+  	{
+  	"name": "rest", 
+  	"price": 500, 
+  	"productImage": "image"
+  **	"productId": ""
+  	}, 
+  	{
+  	"name": "rest", 
+  	"price": 500, 
+  	"productImage": "image"
+  	"productId": ""
+  	}
+  ], 
+  userId: ""	 	
+	 
+}	
+	
+
+	
+	

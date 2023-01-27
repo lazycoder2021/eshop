@@ -1,0 +1,42 @@
+step 1: 
+
+delete items from cart
+ensure cart functionality in all screens [product details page and wishlist page!!!!]
+remove unwanted menu [only done in index page, others remain] 
+fix unwanted backwarding (esp. during order execution) 
+hide client js code or garble it
+fix login button innerText (should read logout) while user continues using site immediately after registering-change flow, ask user 2 login?
+fix login button innerText issue on product details page
+add reviews to products [BEGIN FROM HERE!! WOULD BE GOOD PRACTICE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!] [DONE] 
+add products to wishlit and display!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! [INPROGRESS] 
+========================================================
+
+step 2: 
+
+fix razorpay (total amount) related error
+razorpay error handling (payment api call) (very basic way: showing error message + stopping DB from storing order)
+fix UI related issues (form radio button multi select + orders looping issue) 
+form sanitization (on both client + server sides) 
+hide add product screen from users 
+
+
+=============================================================
+
+step 3: 
+
+add PAGINATION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+modify shipping charges (based on selected country/state) 
+turn country input field into dropdown (or) just use the input value to complete the above step 
+order status tracking screen (simple one displaying order status would be enough for now) (basically user inputs/system outputs) 
+handle color based, price based, brand based (available on UI) filtering 
+
+==============================================================
+
+step 4: 
+
+
+
+
+
+
+

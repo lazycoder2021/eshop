@@ -1,0 +1,8 @@
+user model
+=============
+
+name
+email
+verify 
+role (with default user value) 
+createdAt (type:Date, default: Date.now)

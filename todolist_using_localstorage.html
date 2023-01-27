@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+            box-sizing:border-box; 
+        }
+
+        .todo-item{
+            border:1px solid black;
+            padding:5px;
+            margin:5px 0px;
+        }
+
+        .edit, .del{
+            float:right; 
+            //border:1px solid black;
+            padding:0px;
+            text-transform:uppercase; 
+            cursor:pointer; 
+            margin:0px 2px;
+        }
+
+        .edit:hover, .del:hover{
+            border:1px solid black;
+        }
+
+        form{
+            width:100%; 
+            border:1px solid black;
+        }
+
+        form input{
+            width:85%; 
+            padding:5px;
+        }
+
+            form button {
+                width: 14%;
+                padding: 5px;
+            }
+
+        .container{
+            width:500px;
+            margin:100px auto 0px; 
+        }
+
+        .hide{
+            display:none; 
+        }
+
+        form{
+            padding:5px;
+        }
+
+        .btns{
+            width:100%; 
+            margin-top:30px;
+            //border:1px solid black;
+        }
+
+        .btns span{
+            border:1px solid black;
+            padding:4px;
+            display:inline-block; 
+            cursor:pointer; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="add">
+            <input type="text" class="task" />
+            <button>Add</button>
+        </form>
+        <div class="tasks"></div>
+        <form class="edit-form hide">
+            <input type="text" class="edittask" />
+            <button>Submit</button>
+        </form>
+        <form class="search-form">
+            <input type="text" class="searchtask" />
+            <button>Search</button>
+        </form>
+        <div class="btns">
+            <center>
+                <span class="reload">RELOAD</span>
+                <span class="clear">CLEAR ALL</span>
+            </center>
+        </div>
+    </div>
+
+    <script>
+        var items = JSON.parse(localStorage.getItem('items')) ? JSON.parse(localStorage.getItem('items')) : []; 
+        console.log(items)
+
+        window.addEventListener('DOMContentLoaded', function () {
+
+            if (items.length == 0) {
+                document.querySelector('.tasks').innerHTML = 'You have not added any task yet'
+                document.querySelector('.tasks').style.textAlign = 'center'; 
+                    /* style this element to make it look good */
+                    /* also add remove all tasks button to clear localstorage */
+            }
+            
+            items.forEach((i) => {
+                document.querySelector('.tasks').innerHTML += `
+                    <div class="todo-item" data-id=${i.id}>
+                        <span>Task ID: ${i.id}</span>
+                        <span>Task Name: ${i.name}</span>
+                        <span class="edit">Edit</span>
+                        <span class="del">Del</span>
+                    </div>
+
+                `; 
+            })
+
+
+            document.querySelectorAll('.del').forEach((d) => {
+                d.addEventListener('click', function (e) {
+                    const id = e.target.parentElement.dataset.id; 
+                    console.log(e.target.parentElement.dataset.id)
+                    let tempItems = JSON.parse(localStorage.getItem('items'));
+                    //console.log(tempItems)
+                    tempItems = tempItems.filter((f) => {
+                        return f.id != id
+                    })
+                    localStorage.setItem("items", JSON.stringify(tempItems));
+                    window.location.reload();
+                })
+            })
+
+            document.querySelectorAll('.edit').forEach((eb) => {
+                eb.addEventListener('click', function (e) {
+                    const id = e.target.parentElement.dataset.id; 
+                    console.log(e.target.parentElement.dataset.id)
+                    document.querySelector('.edit-form').classList.remove('hide'); 
+
+                    let tempItems = JSON.parse(localStorage.getItem('items'));
+                    console.log(tempItems)
+                    /* redundant step
+                    var foundItem = tempItems.find((ti) => {
+                        return ti.id == id
+                    })
+
+                    console.log(foundItem)
+                    can be removed
+                    */
+
+                    document.querySelector('.edit-form').addEventListener('submit', function (e) {
+                        e.preventDefault(); 
+                        
+                        console.log(document.querySelector('.edittask').value)
+                        //foundItem.name = document.querySelector('.edittask').value;
+                        //console.log(foundItem)
+                        let setToBeEdited = JSON.parse(localStorage.getItem('items'));
+                        
+                        setToBeEdited.forEach((si) => {
+                            console.log(si.id)
+                            if (si.id == id) {
+                                console.log('match found')
+                                si.name = document.querySelector('.edittask').value;
+                            }
+                            
+                        })
+                        localStorage.setItem('items', JSON.stringify(setToBeEdited))
+                        window.location.reload()
+                    })
+                })
+                
+            })
+
+
+        })
+        
+
+        document.querySelector('.add').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var obj = {
+                name: document.querySelector('.task').value,
+                id: Math.floor(Math.random() * 10 * 5)
+            }
+
+            if (obj.name == "") {
+                return alert('nothing entered')
+            }
+
+            items.push(obj);
+            localStorage.setItem('items', JSON.stringify(items));
+            window.location.reload()
+
+        }); 
+
+        document.querySelector('.search-form').addEventListener('submit', function (e) {
+            e.preventDefault(); 
+             
+            console.log(items)
+            const searchTerm = document.querySelector('.searchtask').value;
+            console.log(searchTerm)
+            items.forEach((i) => {
+                if (searchTerm.toLowerCase().includes(i.name.toLowerCase())) {
+                    //console.log('match found')
+                    console.log(i)
+                    document.querySelector('.tasks').innerHTML = ''; 
+                    document.querySelector('.tasks').innerHTML += `
+                    <div class="todo-item" data-id=${i.id}>
+                        <span>Task ID: ${i.id}</span>
+                        <span>Task Name: ${i.name}</span>
+                    </div>
+
+                `;
+                
+                } else {
+                    document.querySelector('.tasks').innerHTML = 'No Match Found';
+                    document.querySelector('.tasks').style.textAlign = 'center'; 
+                    console.log('no match found')
+                }
+            })
+
+
+        })
+
+        document.querySelector('.reload').addEventListener('click', function () {
+            window.location.reload(); 
+        })
+
+        document.querySelector('.clear').addEventListener('click', function () {
+            localStorage.clear();
+            window.location.reload(); 
+        })
+
+
+
+
+
+    </script>
+</body>
+</html>

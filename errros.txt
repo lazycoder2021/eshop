@@ -1,0 +1,8 @@
+1. register/login error >> Verification/Passcode sent to mail msg appears, even when internet is not connected and therefore mail cannot be delivered -- this should be fixed (basically should look into sengrid api response and deliver the right message accordingly) 
+
+2. modify login flow: once user verifies his or her account, then he should be asked to login again!!!!!! (not be allowed to go through app just like that!!) 
+
+3. sendgrid mail not sent error >> if sendgrid fails to send mail, that error should be captured (api response) and shown to the user 
+
+4. learn how get your app out of mongoose validation errors (when you get stuck in one): that is, 'path' review is required, 'email' is required etc. (basically mongoose error handling) 
+
