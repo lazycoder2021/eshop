@@ -1265,7 +1265,7 @@
 
             
 
-            const response = await fetch(`https://eshop.onrender.com/products/${id}`);
+            const response = await fetch(`https://eshop-vdgf.onrender.com/products/${id}`);
             const data = await response.json();
             console.log(data)
             products_data = data.product; 
@@ -1287,7 +1287,7 @@
            */
 
 
-            fetch(`https://eshop.onrender.com/getreview`, {
+            fetch(`https://eshop-vdgf.onrender.com/getreview`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json', 
@@ -1394,7 +1394,7 @@
         document.querySelector('.product-details-page-logout').addEventListener('click', async function () {
             //alert('hello')
             localStorage.clear();
-            await fetch('https://eshop.onrender.com/logout')
+            await fetch('https://eshop-vdgf.onrender.com/logout')
                 .then((res) => {
                     return res.json()
                 })
@@ -1413,7 +1413,7 @@
             } else {
                 e.preventDefault();
                 //alert('posting review...')
-                fetch('https://eshop.onrender.com/review', {
+                fetch('https://eshop-vdgf.onrender.com/review', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',

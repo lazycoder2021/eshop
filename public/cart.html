@@ -1004,7 +1004,7 @@
             }
 
             document.querySelector('.cart_page_login').addEventListener('click', function () {
-                fetch('https://eshop.onrender.com/logout')
+                fetch('https://eshop-vdgf.onrender.com/logout')
                     .then((res) => {
                         return res.json()
                     })
@@ -1077,7 +1077,7 @@
 
 
 
-            fetch(`https://eshop.onrender.com/products/${id}`)
+            fetch(`https://eshop-vdgf.onrender.com/products/${id}`)
                 .then((res) => {
                     return res.json()
                 })
@@ -1101,7 +1101,7 @@
 
         function checkAndRedirect() {
             //alert('hello world')
-            fetch('https://eshop.onrender.com/logincheck')
+            fetch('https://eshop-vdgf.onrender.com/logincheck')
                 .then((res) => {
                     //console.log(res.json())
                     return res.json()

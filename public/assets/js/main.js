@@ -767,7 +767,7 @@
 
 document.querySelector('.form--register').addEventListener('submit', function (e) {
 	e.preventDefault();
-	fetch('https://eshop.onrender.com/register', {
+	fetch('https://eshop-vdgf.onrender.com/register', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json', 
@@ -802,7 +802,7 @@ document.querySelector('.form--register').addEventListener('submit', function (e
 
 document.querySelector('.form--login').addEventListener('submit', function (e) {
 	e.preventDefault();
-	fetch('https://eshop.onrender.com/login', {
+	fetch('https://eshop-vdgf.onrender.com/login', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',

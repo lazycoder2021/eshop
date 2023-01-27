@@ -975,7 +975,7 @@
 
             //document.querySelector('.home').classList.remove('hide'); 
 
-            fetch('https://eshop.onrender.com/accountverification', {
+            fetch('https://eshop-vdgf.onrender.com/accountverification', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json',
@@ -1016,7 +1016,7 @@
 
         document.querySelector('.log').addEventListener('click', async function () {
             document.querySelector('.log').innerText = 'Logout'; 
-            await fetch('https://eshop.onrender.com/logout')
+            await fetch('https://eshop-vdgf.onrender.com/logout')
                 .then((res) => {
                     return res.json()
                 })

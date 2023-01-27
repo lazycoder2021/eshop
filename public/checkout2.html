@@ -1108,7 +1108,7 @@
 
             //document.querySelector('.bycash').checked = true;
 
-            fetch(`https://eshop.onrender.com/products/${id}`)
+            fetch(`https://eshop-vdgf.onrender.com/products/${id}`)
                 .then((res) => {
                     return res.json()
                 })
@@ -1151,7 +1151,7 @@
             console.log(listitems)
 
 
-            fetch('https://eshop.onrender.com/order', {
+            fetch('https://eshop-vdgf.onrender.com/order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1194,7 +1194,7 @@
         })
 
         document.querySelector('.checkout-page-logout').addEventListener('click', function () {
-            fetch('https://eshop.onrender.com/logout')
+            fetch('https://eshop-vdgf.onrender.com/logout')
                 .then((res) => {
                     return res.json()
                 })
@@ -1216,7 +1216,7 @@
 
             document.querySelector('.btn-pay').style.backgroundColor = 'transparent';
             document.querySelector('.btn-pay').style.color = 'black';
-            fetch('https://eshop.onrender.com/razorpayorder', {
+            fetch('https://eshop-vdgf.onrender.com/razorpayorder', {
                         method: 'POST', 
                         headers: {
                             'Accept': 'application/json', 
@@ -1278,7 +1278,7 @@
 
                 /*
 
-                fetch('https://eshop.onrender.com/order', {
+                fetch('https://eshop-vdgf.onrender.com/order', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -1330,7 +1330,7 @@
 
         function triggerPostRequest() {
             alert('triggering.....')
-            fetch('https://eshop.onrender.com/order', {
+            fetch('https://eshop-vdgf.onrender.com/order', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

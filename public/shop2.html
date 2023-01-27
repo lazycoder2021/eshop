@@ -966,7 +966,7 @@
             //console.log(listitems.length)
 
 
-            fetch('https://eshop.onrender.com/getwishlist', {
+            fetch('https://eshop-vdgf.onrender.com/getwishlist', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1064,7 +1064,7 @@
 
 
 
-            await fetch('https://eshop.onrender.com/products')
+            await fetch('https://eshop-vdgf.onrender.com/products')
                 .then((res) => {
                     return res.json(); 
                 })
@@ -1144,7 +1144,7 @@
                                         temparray.push(obj);
                                         console.log(temparray)
 
-                                    fetch('https://eshop.onrender.com/wishlist', {
+                                    fetch('https://eshop-vdgf.onrender.com/wishlist', {
                                             method: 'POST', 
                                             headers: {
                                                 'Content-Type': 'application/json', 
@@ -1188,7 +1188,7 @@
                 console.log(e.target.value)
 
 
-                fetch(`https://eshop.onrender.com/products?keyWord=${e.target.value}`)
+                fetch(`https://eshop-vdgf.onrender.com/products?keyWord=${e.target.value}`)
                     .then((res) => {
                         return res.json();
                     })
@@ -1256,7 +1256,7 @@
         document.querySelector('.shop2-page-logout').addEventListener('click', async function () {
             alert('hello')
             localStorage.clear();
-            await fetch('https://eshop.onrender.com/logout')
+            await fetch('https://eshop-vdgf.onrender.com/logout')
                 .then((res) => {
                     return res.json()
                 })

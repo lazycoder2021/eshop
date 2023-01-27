@@ -991,7 +991,7 @@
 
 
             const userId = localStorage.getItem('userId');
-            fetch(`https://eshop.onrender.com/orders/${localStorage.getItem('userId')}`)
+            fetch(`https://eshop-vdgf.onrender.com/orders/${localStorage.getItem('userId')}`)
                 .then((res) => {
                     return res.json()
                 })
@@ -1037,7 +1037,7 @@
         document.querySelector('.orders-page-logout').addEventListener('click', async function () {
             //alert('hello')
             localStorage.clear(); 
-            await fetch('https://eshop.onrender.com/logout')
+            await fetch('https://eshop-vdgf.onrender.com/logout')
                 .then((res) => {
                     return res.json()
                 })
