@@ -18,7 +18,7 @@ const sendMail =  async (options) => {
                 "color:red;" +
                 ">Delete this mail once you successfully verify your account!</h2><h3>Your Code for verification is : " +
                 options.uid + 
-                " </h3></div><a href=http://localhost:3000/accountverification>Click Here to Verify</a><p>If this request is not made by you kindly ignore this mail.</p><p>Regards, <p><strong>Vikalp Team</strong></p></p>",
+                " </h3></div><a href=https://eshop-vdgf.onrender.com/accountverification>Click Here to Verify</a><p>If this request is not made by you kindly ignore this mail.</p><p>Regards, <p><strong>Vikalp Team</strong></p></p>",
         }
         const info = await sendGrid.send(msg)
         console.log(info);

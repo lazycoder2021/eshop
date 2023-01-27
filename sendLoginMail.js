@@ -18,7 +18,7 @@ const sendLoginMail =  async (options) => {
                 ">Delete this mail once you successfully login!</h2>" +
                 "<br>Here is Your Login Passcode</h1><h3>Your Login Passcode is : " +
                 options.lid + 
-                " </h3></div><a href=http://localhost:3000/passwordverification>Click Here to Login</a><p>If this request is not made by you kindly ignore this mail.</p><p>Regards, <p><strong>Vikalp Team</strong></p></p>",
+                " </h3></div><a href=https://eshop-vdgf.onrender.com/passwordverification>Click Here to Login</a><p>If this request is not made by you kindly ignore this mail.</p><p>Regards, <p><strong>Vikalp Team</strong></p></p>",
         }
         const info = await sendGrid.send(msg)
         console.log(info);
