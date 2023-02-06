@@ -1,4 +1,5 @@
 const mongoose = require('mongoose'); 
+const schedule = require('node-schedule');
 
 const userSchema = mongoose.Schema({
     name: {
@@ -32,6 +33,30 @@ const userSchema = mongoose.Schema({
         type: String,
     }
 })
+
+
+var j = schedule.scheduleJob('45 * * * *', function () {
+    return deleteOldUsers();
+});
+
+
+
+
+
+
+
+function deleteOldUsers() {
+    User.deleteMany({ verify: { $eq: false } }, (err) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log('successfully erased data')
+        }
+    })
+
+
+
+}
 
 const User = mongoose.model('User', userSchema); 
 

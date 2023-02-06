@@ -20,6 +20,7 @@
     "express-fileupload": "^1.4.0",
     "express-session": "^1.17.3",
     "mongoose": "^6.8.3",
+    "node-schedule": "^2.1.1",
     "razorpay": "^2.8.4",
     "uuid": "^9.0.0"
   }

@@ -13,11 +13,11 @@ add products to wishlit and display!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 step 2: 
 
-fix razorpay (total amount) related error
-razorpay error handling (payment api call) (very basic way: showing error message + stopping DB from storing order)
-fix UI related issues (form radio button multi select + orders looping issue) 
-form sanitization (on both client + server sides) 
-hide add product screen from users 
+fix razorpay (total amount) related error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+razorpay error handling (payment api call) (very basic way: showing error message + stopping DB from storing order)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+fix UI related issues (form radio button multi select + orders looping issue)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+form sanitization (on both client + server sides) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+hide add product screen from users !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 =============================================================
@@ -25,9 +25,10 @@ hide add product screen from users
 step 3: 
 
 add PAGINATION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-modify shipping charges (based on selected country/state) 
+modify shipping charges (based on selected country/state) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 turn country input field into dropdown (or) just use the input value to complete the above step 
-order status tracking screen (simple one displaying order status would be enough for now) (basically user inputs/system outputs) 
+order status tracking screen (simple one displaying order status would be enough for now) (basically user inputs/system outputs) !!!!!!!!XXXXXXXXXXXXXXXXXX
+user profile page (showing address <which he/she can update> and ensuring that if he or she has updated the address, the same gets auto-populated (via api call) during product checkout
 handle color based, price based, brand based (available on UI) filtering 
 
 ==============================================================
