@@ -1422,7 +1422,7 @@
                     body: JSON.stringify({
                         review: document.querySelector('#review').value,
                         productId: localStorage.getItem('id'),
-                        userId: '63d09ebd39b1ec771d4f240e'
+                        userId: localStorage.getItem('userId')
                     })
                 })
                     .then((res) => {
@@ -1430,8 +1430,14 @@
                     })
                     .then((data) => {
                         console.log(data)
-                        alert('your review submitted successfully')
-                        window.location.reload(); 
+                        if (data.msg == 'review posted') {
+                            alert('your review submitted successfully')
+                            window.location.reload();
+                        } else if (data.msg == 'cannot add more than 1 review for same product') {
+                            return alert('cannot add more than 1 review for same product')
+                        } else {
+                            alert('unknown error')
+                        } 
                     })
             }
 

@@ -255,13 +255,29 @@ router.get('/logout', async function (req, res) {
 
 router.post('/review', async function (req, res) {
     try {
-        const review = new Review({
-            review: req.body.review, 
-            productId: req.body.productId, //ruggers green bag product
-            userId: req.body.userId, 
+        console.log(req.body)
+        const reviews = await Review.find({ productId: req.body.productId })
+        //console.log(reviews);
+        let reviewExists = reviews.filter((r) => {
+            if (r.userId == req.body.userId) {
+                //console.log('match found')
+                return r;
+            }
         })
-        await review.save(); 
-        res.status(200).json({"msg": "review posted", review})
+        console.log(reviewExists)
+        if (reviewExists.length !== 0) {
+            res.status(403).json({ "msg": "cannot add more than 1 review for same product" })
+        } else {
+            const review = new Review({
+                review: req.body.review,
+                productId: req.body.productId,
+                userId: req.body.userId,
+            })
+            await review.save();
+            res.status(200).json({ "msg": "review posted", review })
+        }
+
+
     } catch (e) {
         console.log(e)
     }
