@@ -10,7 +10,8 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 const sendLoginMail = require('../sendLoginMail'); 
 const cloudinary = require("cloudinary").v2;
-const auth = require('../auth'); 
+const auth = require('../auth');
+const adminAuth = require('../adminAuth'); 
 const Razorpay = require('razorpay');
 require('dotenv').config({})
 
@@ -130,7 +131,9 @@ router.post('/accountverification', async function (req, res) {
         if (user) {
             console.log(user._id.toString())
             req.session.userId = user._id.toString();
+            
             console.log(req.session.userId.toString())
+            
             user.verify = true; // should use this flag in the auth system or somewhere maybe? otherwise it's a waste of a flag
             await user.save();
             res.json({ "msg": "verification successful, please login to continue" })
@@ -148,7 +151,9 @@ router.post('/passwordverification', async function (req, res) {
         const user = await User.findOne({ lid: req.body.code });
         if (user) {
             req.session.userId = user._id.toString();
+            req.session.userRole = user.role;
             console.log(req.session.userId)
+            console.log(req.session.userRole)
             user.lid = '';
             await user.save();
             res.json({ "msg": "login successful, you can now access the site", user })
@@ -332,7 +337,7 @@ router.get('/addproduct', auth, async function (req, res) { // should ensure onl
     }
 })
 
-router.post('/addproduct', auth, async function (req, res) {
+router.post('/addproduct', adminAuth, async function (req, res) {
     try {
         console.log(process.env.API_KEY)
         console.log(req.files)
