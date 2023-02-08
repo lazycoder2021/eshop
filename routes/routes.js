@@ -133,7 +133,7 @@ router.post('/accountverification', async function (req, res) {
             console.log(req.session.userId.toString())
             user.verify = true; // should use this flag in the auth system or somewhere maybe? otherwise it's a waste of a flag
             await user.save();
-            res.json({ "msg": "verification successful, you can now access the site" })
+            res.json({ "msg": "verification successful, please login to continue" })
         } else {
             res.json({ "msg": "verification unsuccessful, please check your verifiction code" })
         }
@@ -324,7 +324,7 @@ router.delete('/wishlist/:id', async function (req, res) {
     }
 })
 
-router.get('/addproduct', async function (req, res) { // should ensure only user with admin role gets to access this page...
+router.get('/addproduct', auth, async function (req, res) { // should ensure only user with admin role gets to access this page...
     try {
         await res.sendFile(path.join(__dirname, '../public/add_product.html'));
     } catch (e) {
@@ -332,7 +332,7 @@ router.get('/addproduct', async function (req, res) { // should ensure only user
     }
 })
 
-router.post('/addproduct', async function (req, res) {
+router.post('/addproduct', auth, async function (req, res) {
     try {
         console.log(process.env.API_KEY)
         console.log(req.files)
