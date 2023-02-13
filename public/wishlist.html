@@ -1110,7 +1110,7 @@
                             e.target.parentElement.parentElement.remove(); // just for cosmetic effect, until data structure is fixed 2 facilitate individual record deletion
                             let tempList = JSON.parse(localStorage.getItem('list'));
                             tempList.push(obj);
-                            localStorage.setItem('wishlist', JSON.stringify(tempList))
+                            localStorage.setItem('list', JSON.stringify(tempList))
 
                         })
                     })
