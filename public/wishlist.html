@@ -1090,7 +1090,13 @@
                             console.log(e.target.parentElement.parentElement.children[2].innerText)
                             console.log(e.target.parentElement.parentElement.children[4].innerText)
                             console.log(e.target.parentElement.parentElement.children[1].children[0].src)
+                            /*
                             let price = Number(e.target.parentElement.parentElement.children[4].innerText)
+                            */
+                            let price = Number(e.target.parentElement.parentElement.children[4].innerText.slice(1))
+                            console.log(price)
+
+
                             console.log(typeof(price))
                             let obj = {
                                 price: price,
@@ -1104,7 +1110,7 @@
                             e.target.parentElement.parentElement.remove(); // just for cosmetic effect, until data structure is fixed 2 facilitate individual record deletion
                             let tempList = JSON.parse(localStorage.getItem('list'));
                             tempList.push(obj);
-                            localStorage.setItem('list', JSON.stringify(tempList))
+                            localStorage.setItem('wishlist', JSON.stringify(tempList))
 
                         })
                     })
