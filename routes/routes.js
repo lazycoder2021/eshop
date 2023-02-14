@@ -385,9 +385,10 @@ router.post('/contacts-query', async function (req, res) {
 })
 
 
-router.get('/test', async function (req, res) {
+router.get('/contacts-queries', async function (req, res) {
     try {
-        res.send('hello world')
+        const queries = await Contact.find({}); 
+        res.status(200).json({"msg": "queries fetched successfully", queries})
     } catch (e) {
         console.log(e)
     }
