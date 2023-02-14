@@ -331,10 +331,10 @@
                                     <h2>Contact Us</h2>
                                     <hr class="delimeter">
                                 </div>
-                                <form action="mail.php" class="form" id="contact-form">
-                                    <input type="email" name="con_email" id="con_email" class="form__input mb--30" placeholder="Email*">
-                                    <input type="text" name="con_name" id="con_name" class="form__input mb--30" placeholder="Name*">
-                                    <textarea class="form__input form__input--textarea mb--30" placeholder="Message" id="con_message" name="con_message"></textarea>
+                                <form action="/contacts-query" class="contact-form" method="POST">
+                                    <input type="email" class="contact-email form__input mb--30" placeholder="Email*">
+                                    <input type="text" name="con_name" id="con_name" class="contact-name form__input mb--30" placeholder="Name*">
+                                    <textarea class="form__input form__input--textarea mb--30 contact-message" placeholder="Message" id="con_message" name="con_message"></textarea>
                                     <button type="submit" class="btn btn-shape-round form__submit">Send Request</button>
                                     <div class="form__output"></div>
                                 </form>
@@ -1175,6 +1175,29 @@
                 animation: google.maps.Animation.BOUNCE
             });
         }
+
+        document.querySelector('.contact-form').addEventListener('submit', function (e) {
+            e.preventDefault(); 
+            //alert('form tamed')
+            alert(document.querySelector('.contact-email').value + document.querySelector('.contact-name').value + document.querySelector('.contact-message').value)
+
+            fetch('https://eshop-vdgf.onrender.com/contacts-query', {
+                method: 'POST', 
+                headers: {
+                    'Content-Type': 'application/json', 
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: document.querySelector('.contact-email').value, 
+                    name: document.querySelector('.contact-name').value,
+                    message: document.querySelector('.contact-message').value
+                })
+            }).then((res) => {
+                return res.json()
+            }).then((data) => {
+                console.log(data)
+            })
+        })
     </script>
     <!-- jQuery JS -->
     <script src="assets/js/vendor.js"></script>

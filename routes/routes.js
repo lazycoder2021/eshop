@@ -5,6 +5,7 @@ const Product = require('../models/Product');
 const Order = require('../models/Order');
 const Review = require('../models/Review');
 const Wishlist = require('../models/Wishlist');
+const Contact = require('../models/Contact');
 const sendMail = require('../sendMail'); 
 const { v4: uuidv4 } = require('uuid'); 
 const path = require('path');
@@ -367,6 +368,26 @@ router.post('/addproduct', adminAuth, async function (req, res) {
         );
 
 
+    } catch (e) {
+        console.log(e)
+    }
+})
+
+router.post('/contacts-query', async function (req, res) {
+    try {
+        console.log(req.body)
+        const contactQuery = new Contact(req.body);
+        await contactQuery.save();
+        res.status(200).json({ "msg": "query submitted successfully", contactQuery });
+    } catch (e) {
+        console.log(e)
+    }
+})
+
+
+router.get('/test', async function (req, res) {
+    try {
+        res.send('hello world')
     } catch (e) {
         console.log(e)
     }
